@@ -30,8 +30,6 @@
         </div>
       </div>
 
-      <div class="row">
-        <h2>&nbsp;</h2>
       <hr>
 
       <div id="getting-in-the-mood" class="page">
@@ -50,7 +48,7 @@
 
       </div>
 
-      <div id="quantitative-questions">
+      <div id="quantitative-questions" class="page" style="display:none">
         <div class="row">
           <div class="twelve columns" style="text-align:center">
             <h3>How are you feeling today?</h3>
@@ -73,7 +71,7 @@
         </div>
       </div>
 
-      <div id="qualitative-questions">
+      <div id="qualitative-questions" class="page" style="display:none">
         <div class="row">
           <h2>&nbsp;</h2>
         </div>
@@ -85,20 +83,24 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="twelve columns" style="text-align:center">
-            <button id="the-button" onClick="buttonClick()">Next</button>
-          </div>
-        </div>
-
       </div>
 
     </div>
   </div>
 
   <script>
-    function buttonClick() {
-      console.log("hello");
+    function showOnly(id) {
+      let pages = document.getElementsByClassName('page');
+      for (let page of pages) {
+        hide(page.id);
+      }
+      show(id);
+    }
+    function show(id) {
+      document.getElementById(id).style = 'display:block';
+    }
+    function hide(id) {
+      document.getElementById(id).style = 'display:none';
     }
   </script>
 
