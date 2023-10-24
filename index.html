@@ -121,8 +121,26 @@
             <i id="quote">...</i>
           </div>
         </div>
+
+        <div class="row">
+          <h2>&nbsp;</h2>
+        </div>
+        <div class="row">
+          <div class="twelve columns" style="text-align:center">
+            <button onClick="showOnly('reminder')">Set up a reminder to do this every day</button>
+          </div>
+        </div>
       </div>
 
+      <div id="reminder" class="page" style="display:none">
+        <div class="row">
+          <div class="twelve columns" style="text-align:center">
+            <h4>Copy and paste this into Slack to setup a reminder on weekdays</h4>
+            <tt>/remind me Remember to <a href="https://robin-persson.github.io/reflection-as-a-service/">reflect</a>
+              every weekday at 9</tt>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
