@@ -118,6 +118,7 @@
             <h1>🙌🏻</h1>
             <h4>Yay me!</h4>
             <h2>I have invested some time into growing today</h2>
+            <i id="quote">...</i>
           </div>
         </div>
       </div>
@@ -138,6 +139,15 @@
     }
     function hide(id) {
       document.getElementById(id).style = 'display:none';
+    }
+    function getRandomQuote() {
+      let quotes = [
+        "“In the midst of movement and chaos, keep stillness inside of you” –Deepak Chopra",
+        "“Calm mind brings inner strength and self-confidence.” -Dalai Lama",
+        "“Happiness is not a matter of intensity but of balance, order, rhythm, and harmony.” -Thomas Merton",
+        "“Mindfulness isn't difficult, we just need to remember to do it.” -Sharon Salzberg"
+      ]
+      return random(quotes);
     }
     function getRandomQuestion() {
       let questions = [
@@ -172,10 +182,15 @@
         "What are my biggest challenges when it comes to work?",
         "What are my greatest opportunities when it comes to work?",
       ]
-      return questions[Math.floor(Math.random() * questions.length)];
+      return random(questions);
+    }
+
+    function random(list) {
+      return list[Math.floor(Math.random() * list.length)]
     }
 
     document.getElementById("question").innerText = getRandomQuestion();
+    document.getElementById("quote").innerText = getRandomQuote();
   </script>
 
 </body>
