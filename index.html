@@ -19,6 +19,7 @@
 
 <body>
   <div class="box">
+
     <div class="container">
       <div class="row">
         <div class="six columns" style="text-align:right">
@@ -33,39 +34,61 @@
         <h2>&nbsp;</h2>
       </div>
 
-      <div class="row">
-        <div class="twelve columns" style="text-align:center">
-          <h3>How are you feeling today?</h3>
+      <div id="getting-in-the-mood">
+      </div>
+
+      <div id="quantitative-questions">
+        <div class="row">
+          <div class="twelve columns" style="text-align:center">
+            <h3>How are you feeling today?</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four columns" style="text-align:center">
+            <label>Energy filled</label>
+            <input type="range" id="energy-filled" name="Energy filled" min="1" max="10" />
+          </div>
+          <div class="four columns" style="text-align:center">
+            <label>Unstressed</label>
+            <input type="range" id="unstressed" name="Unstressed" min="1" max="10" />
+          </div>
+          <div class="four columns" style="text-align:center">
+            <label>Harmonious</label>
+            <input type="range" id="harmonious" name="Harmonious" min="1" max="10" />
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="four columns" style="text-align:center">
-          <label>Energy filled</label>
-          <input type="range" id="energy-filled" name="Energy filled" min="1" max="10" />
+      <div id="qualitative-questions">
+        <div class="row">
+          <h2>&nbsp;</h2>
         </div>
-        <div class="four columns" style="text-align:center">
-          <label>Unstressed</label>
-          <input type="range" id="unstressed" name="Unstressed" min="1" max="10" />
+
+        <div class="row">
+          <div class="twelve columns" style="text-align:center">
+            <h3>Today's question</h3>
+            <p>What was a moment today that you felt really good about?</p>
+          </div>
         </div>
-        <div class="four columns" style="text-align:center">
-          <label>Harmonious</label>
-          <input type="range" id="harmonious" name="Harmonious" min="1" max="10" />
+
+        <div class="row">
+          <div class="twelve columns" style="text-align:center">
+            <button id="the-button" onClick="buttonClick()">Next</button>
+          </div>
         </div>
+
       </div>
 
-      <div class="row">
-        <h2>&nbsp;</h2>
-      </div>
-
-      <div class="row">
-        <div class="twelve columns" style="text-align:center">
-          <h3>Today's question</h3>
-          <p>What was a moment today that you felt really good about?</p>
-        </div>
-      </div>
     </div>
   </div>
+
+  <script>
+    function buttonClick() {
+      console.log("hello");
+    }
+  </script>
+
 </body>
 
 </html>
