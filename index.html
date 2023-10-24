@@ -98,7 +98,7 @@
         <div class="row">
           <div class="twelve columns" style="text-align:center">
             <h4 style="text-align: left">Today's question</h4>
-            <h2>What was a moment today that you felt really good about?</h2>
+            <h2 id="question">...</h2>
           </div>
         </div>
         <div class="row">
@@ -115,7 +115,7 @@
         <div class="row">
           <div class="twelve columns" style="text-align:center">
             <h1>🙌🏻</h1>
-            <h4>Congratulate yourself!</h4>
+            <h4>Yay me!</h4>
             <h2>I have invested some time into growing today</h2>
           </div>
         </div>
@@ -138,6 +138,43 @@
     function hide(id) {
       document.getElementById(id).style = 'display:none';
     }
+    function getRandomQuestion() {
+      let questions = [
+        "How did I nurture my physical well-being today?",
+        "What actions did I take to promote my mental health today?",
+        "What actions did I take to promote my emotional health today?",
+        "How did I engage in activities that brought me joy and happiness today?",
+        "How did I handle stress and difficult emotions today?",
+        "How did I practice self-care today?",
+        "How did I nurture my social well-being today?",
+        "What did I do to improve my well-being today?",
+        "How did I contribute to the well-being of others today, and how did it make me feel?",
+        "What am I proud of accomplishing today?",
+        "What did I learn about myself today?",
+        "What am I grateful for in this moment?",
+        "How did I communicate and connect with others today?",
+        "How did I work toward my short-term and long-term goals today?",
+        "What opportunities did I seize or create today?",
+        "What moments brought me joy, and how can I replicate them?",
+        "How did I contribute positively to the lives of others today?",
+        "When did I engage in creative or stimulating activities today?",
+        "What moments today brought me a sense of calm and relaxation?",
+        "How did I prioritize my physical health and self-care today?",
+        "What boundaries did I set today to protect my well-being?",
+        "In what way do I connect with nature or the outdoors for  recreation?",
+        "What activites did I engage that brought me joy and laughter today?",
+        "What brought me a sense of purpose today?",
+        "What activities today helped me manage stress and maintain balance?",
+        "What steps did I take to promote a healthy work-life balance today?",
+        "What activities did I engage in to promote my personal or professional growth today?",
+        "What challenged me today, and how did I overcome it?",
+        "What are my biggest challenges when it comes to work?",
+        "What are my greatest opportunities when it comes to work?",
+      ]
+      return questions[Math.floor(Math.random() * questions.length)];
+    }
+
+    document.getElementById("question").innerText = getRandomQuestion();
   </script>
 
 </body>
