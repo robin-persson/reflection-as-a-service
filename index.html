@@ -69,7 +69,7 @@
       <div id="quantitative-questions" class="page" style="display: none">
         <div class="row">
           <div class="twelve columns" style="text-align: center">
-            <a style="text-align: right" onClick="showOnly('quant-support')">info</a>
+            <a style="text-align: right; text-decoration: underline;" onClick="showOnly('quant-support')">About</a>
             <h3>How are you feeling today?</h3>
           </div>
         </div>
@@ -95,6 +95,30 @@
         <div class="row">
           <div class="twelve columns" style="text-align: center">
             <button onClick="showOnly('qualitative-questions')">Yep</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="quant-support" class="page" style="display: none">
+        <div class="row">
+          <div class="twelve columns" style="text-align: center">
+            <h2>About something</h2>
+            <ul>
+              <li><b>Energy filled</b> - beskrivande text</li>
+              <li><b>Unstressed</b> - beskrivande text</li>
+              <li><b>Harmonious</b> - beskrivande text</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>&nbsp;</h2>
+        </div>
+        <div class="row">
+          <div class="twelve columns" style="text-align: center">
+            <button onClick="showOnly('quantitative-questions')">
+              Back to reflections
+            </button>
           </div>
         </div>
       </div>
