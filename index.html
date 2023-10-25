@@ -18,10 +18,96 @@
       justify-content: center;
       height: 100vh;
     }
+
+    .theme-lightest {
+      color: #000 !important;
+      background-color: hsl(123, 13%, 92%) !important
+    }
+
+    .theme-light {
+      color: #000 !important;
+      background-color: hsl(123, 13%, 70%) !important
+    }
+
+    .theme-dark {
+      color: #fff !important;
+      background-color: hsl(123, 13%, 32%) !important
+    }
+
+    .theme {
+      color: #fff !important;
+      background-color: hsl(123, 13%, 51%) !important
+    }
+
+    a {
+      color: hsl(123, 13%, 15%)
+    }
+
+    a:hover {
+      color: hsl(123, 13%, 51%)
+    }
+
+    /* SLIDERS */
+    /* Reset defaults */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+      width: 15rem;
+    }
+
+    input[type="range"]:focus {
+      outline: none;
+    }
+
+    /* Webkit (chrome, edge, etc) */
+    input[type='range']::-webkit-slider-runnable-track {
+      background: hsl(123, 13%, 32%);
+      height: 0.5rem;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      margin-top: -0.75rem;
+      background-color: hsl(123, 13%, 51%);
+      height: 2rem;
+      width: 1rem;
+    }
+
+    input[type="range"]:focus::-webkit-slider-thumb {
+      border: 1px solid hsl(123, 13%, 32%);
+      outline: 3px solid hsl(123, 13%, 32%);
+      outline-offset: 0.075rem;
+    }
+
+    /** FF*/
+    input[type="range"]::-moz-range-progress {
+      background-color: hsl(123, 13%, 32%);
+    }
+
+    input[type="range"]::-moz-range-track {
+      background-color: hsl(123, 13%, 80%);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      background-color: hsl(123, 13%, 51%);
+      border: none;
+      border-radius: 0;
+      height: 2rem;
+      width: 1rem;
+    }
+
+    input[type="range"]:focus::-moz-range-thumb {
+      border: 1px solid hsl(123, 13%, 32%);
+      outline: 3px solid hsl(123, 13%, 32%);
+      outline-offset: 0.075rem;
+    }
   </style>
 </head>
 
-<body style="font-family: 'Kalam', cursive">
+<body class="theme-light" style="font-family: 'Kalam', cursive">
   <div class="box">
     <div class="container">
       <div id="reflection-as-a-service" class="page">
@@ -55,7 +141,7 @@
 
         <div class="row">
           <div class="twelve columns" style="text-align: center">
-            <button onClick="showOnly('getting-in-the-mood')">
+            <button class="theme-dark" onClick="showOnly('getting-in-the-mood')">
               Get Started
             </button>
           </div>
@@ -75,7 +161,7 @@
         </div>
         <div class="row">
           <div class="twelve columns" style="text-align: center">
-            <button onClick="showOnly('quantitative-questions')">
+            <button class="theme-dark" onClick="showOnly('quantitative-questions')">
               I'm ready
             </button>
           </div>
@@ -111,7 +197,7 @@
         </div>
         <div class="row">
           <div class="twelve columns" style="text-align: center">
-            <button onClick="showOnly('qualitative-questions')">Yep</button>
+            <button class="theme-dark" onClick="showOnly('qualitative-questions')">Yep</button>
           </div>
         </div>
       </div>
@@ -138,7 +224,7 @@
         </div>
         <div class="row">
           <div class="twelve columns" style="text-align: center">
-            <button onClick="showOnly('quantitative-questions')">
+            <button class="theme-dark" onClick="showOnly('quantitative-questions')">
               Back to reflections
             </button>
           </div>
@@ -157,7 +243,7 @@
         </div>
         <div class="row">
           <div class="twelve columns" style="text-align: center">
-            <button onClick="showOnly('celebrate')">
+            <button class="theme-dark" onClick="showOnly('celebrate')">
               Finished for today
             </button>
           </div>
@@ -179,7 +265,7 @@
         </div>
         <div class="row">
           <div class="twelve columns" style="text-align: center">
-            <button onClick="showOnly('reminder')">
+            <button class="theme-dark" onClick="showOnly('reminder')">
               Set up a reminder to do this every day
             </button>
           </div>
