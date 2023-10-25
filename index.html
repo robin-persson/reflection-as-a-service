@@ -41,7 +41,7 @@
         a {
             color: hsl(123, 13%, 15%)
         }
-        
+
         a:hover {
             color: hsl(123, 13%, 51%)
         }
@@ -349,7 +349,13 @@
             "What are my biggest challenges when it comes to work?",
             "What are my greatest opportunities when it comes to work?",
         ];
-        return random(questions);
+        return daily(questions);
+    }
+
+    function daily(list) {
+        const now = Date.now()
+        const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
+        return list[Math.floor(now / oneDayInMilliseconds) % list.length]
     }
 
     function random(list) {
