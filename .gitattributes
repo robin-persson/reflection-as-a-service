@@ -2,4 +2,14 @@
 *    text=auto
 
 # Force LF
-*    text eol=lf
+*        text eol=lf
+
+*.html   text diff=html
+*.css    text
+*.js     text
+
+# Be explicity about some binary file types
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.pdf binary
