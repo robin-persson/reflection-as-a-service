@@ -144,7 +144,7 @@
 
             <div class="row">
                 <div class="twelve columns" style="text-align: center">
-                    <button class="theme-dark" onClick="showOnly('getting-in-the-mood')">
+                    <button class="theme-dark" onClick="gotoPage('getting-in-the-mood')">
                         Get Started
                     </button>
                 </div>
@@ -171,7 +171,7 @@
 
             <div class="row">
                 <div class="twelve columns" style="text-align: center">
-                    <button class="theme-dark" onClick="showOnly('quantitative-questions')">
+                    <button class="theme-dark" onClick="gotoPage('quantitative-questions')">
                         I'm ready
                     </button>
                 </div>
@@ -181,7 +181,7 @@
         <div class="page" id="quantitative-questions" style="display: none">
             <div class="row">
                 <div class="twelve columns" style="text-align: center">
-                    <a href="javascript: showOnly('quant-support')"
+                    <a href="javascript: gotoPage('quant-support')"
                        style="text-align: right; text-decoration: underline">About</a>
                     <h3>How are you feeling today?</h3>
                 </div>
@@ -216,7 +216,7 @@
             </div>
             <div class="row">
                 <div class="twelve columns" style="text-align: center">
-                    <button class="theme-dark" onClick="showOnly('qualitative-questions')">Next</button>
+                    <button class="theme-dark" onClick="gotoPage('qualitative-questions')">Next</button>
                 </div>
             </div>
         </div>
@@ -243,7 +243,7 @@
             </div>
             <div class="row">
                 <div class="twelve columns" style="text-align: center">
-                    <button class="theme-dark" onClick="showOnly('quantitative-questions')">
+                    <button class="theme-dark" onClick="gotoPage('quantitative-questions')">
                         Back to reflections
                     </button>
                 </div>
@@ -265,7 +265,7 @@
             </div>
             <div class="row">
                 <div class="twelve columns" style="text-align: center">
-                    <button class="theme-dark" onClick="showOnly('celebrate')">
+                    <button class="theme-dark" onClick="gotoPage('celebrate')">
                         Done for today
                     </button>
                 </div>
@@ -287,7 +287,7 @@
             </div>
             <div class="row">
                 <div class="twelve columns" style="text-align: center">
-                    <button class="theme-dark" onClick="showOnly('reminder')">
+                    <button class="theme-dark" onClick="gotoPage('reminder')">
                         How do I set up a reminder?
                     </button>
                 </div>
@@ -326,7 +326,7 @@
 </div>
 
 <script>
-    function showOnly(id) {
+    function gotoPage(id) {
         let pages = document.getElementsByClassName("page");
         for (let page of pages) {
             hide(page.id);
