@@ -1,442 +1,486 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+      integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+      referrerpolicy="no-referrer"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-        integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
-        referrerpolicy="no-referrer" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <title>Daily Reflection</title>
 
-  <title>Daily Reflection</title>
+    <style>
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
 
-  <style>
-    .box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+      .theme-lightest {
+        color: #000 !important;
+        background-color: hsl(123, 13%, 92%) !important;
+      }
 
-    .theme-lightest {
-      color: #000 !important;
-      background-color: hsl(123, 13%, 92%) !important
-    }
+      .theme-light {
+        color: #000 !important;
+        background-color: hsl(123, 13%, 70%) !important;
+      }
 
-    .theme-light {
-      color: #000 !important;
-      background-color: hsl(123, 13%, 70%) !important
-    }
+      .theme-dark {
+        color: #fff !important;
+        background-color: hsl(123, 13%, 32%) !important;
+      }
 
-    .theme-dark {
-      color: #fff !important;
-      background-color: hsl(123, 13%, 32%) !important
-    }
+      .theme {
+        color: #fff !important;
+        background-color: hsl(123, 13%, 51%) !important;
+      }
 
-    .theme {
-      color: #fff !important;
-      background-color: hsl(123, 13%, 51%) !important
-    }
+      a {
+        color: hsl(123, 13%, 15%);
+      }
 
-    a {
-      color: hsl(123, 13%, 15%)
-    }
+      a:hover {
+        color: hsl(123, 13%, 51%);
+      }
 
-    a:hover {
-      color: hsl(123, 13%, 51%)
-    }
+      p {
+        font-size: 12pt;
+      }
 
-    p {
-      font-size: 12pt;
-    }
+      .code {
+        padding: 0.2rem 0.5rem;
+        margin: 0 0.2rem;
+        font-size: 90%;
+        background: #f1f1f1;
+        border: 1px solid #e1e1e1;
+        border-radius: 4px;
+        display: inline;
+      }
 
-    .code {
-      padding: .2rem .5rem;
-      margin: 0 .2rem;
-      font-size: 90%;
-      background: #F1F1F1;
-      border: 1px solid #E1E1E1;
-      border-radius: 4px;
-      display: inline;
-    }
+      /* SLIDERS */
+      /* Reset defaults */
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+        width: 26rem;
+      }
 
-    /* SLIDERS */
-    /* Reset defaults */
-    input[type="range"] {
-      -webkit-appearance: none;
-      appearance: none;
-      background: transparent;
-      cursor: pointer;
-      width: 26rem;
-    }
+      input[type="range"]:focus {
+        outline: none;
+      }
 
-    input[type="range"]:focus {
-      outline: none;
-    }
+      /* Webkit (chrome, edge, etc) */
+      input[type="range"]::-webkit-slider-runnable-track {
+        background: hsl(123, 13%, 32%);
+        height: 0.5rem;
+      }
 
-    /* Webkit (chrome, edge, etc) */
-    input[type='range']::-webkit-slider-runnable-track {
-      background: hsl(123, 13%, 32%);
-      height: 0.5rem;
-    }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        margin-top: -0.75rem;
+        background-color: hsl(123, 13%, 51%);
+        height: 2rem;
+        width: 1rem;
+      }
 
-    input[type='range']::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      margin-top: -0.75rem;
-      background-color: hsl(123, 13%, 51%);
-      height: 2rem;
-      width: 1rem;
-    }
+      input[type="range"]:focus::-webkit-slider-thumb {
+        border: 1px solid hsl(123, 13%, 32%);
+        outline: 3px solid hsl(123, 13%, 32%);
+        outline-offset: 0.075rem;
+      }
 
-    input[type="range"]:focus::-webkit-slider-thumb {
-      border: 1px solid hsl(123, 13%, 32%);
-      outline: 3px solid hsl(123, 13%, 32%);
-      outline-offset: 0.075rem;
-    }
+      /** FF*/
+      input[type="range"]::-moz-range-progress {
+        background-color: hsl(123, 13%, 32%);
+      }
 
-    /** FF*/
-    input[type="range"]::-moz-range-progress {
-      background-color: hsl(123, 13%, 32%);
-    }
+      input[type="range"]::-moz-range-track {
+        background-color: hsl(123, 13%, 80%);
+      }
 
-    input[type="range"]::-moz-range-track {
-      background-color: hsl(123, 13%, 80%);
-    }
+      input[type="range"]::-moz-range-thumb {
+        background-color: hsl(123, 13%, 51%);
+        border: none;
+        border-radius: 0;
+        height: 2rem;
+        width: 1rem;
+      }
 
-    input[type="range"]::-moz-range-thumb {
-      background-color: hsl(123, 13%, 51%);
-      border: none;
-      border-radius: 0;
-      height: 2rem;
-      width: 1rem;
-    }
+      input[type="range"]:focus::-moz-range-thumb {
+        border: 1px solid hsl(123, 13%, 32%);
+        outline: 3px solid hsl(123, 13%, 32%);
+        outline-offset: 0.075rem;
+      }
+    </style>
+  </head>
 
-    input[type="range"]:focus::-moz-range-thumb {
-      border: 1px solid hsl(123, 13%, 32%);
-      outline: 3px solid hsl(123, 13%, 32%);
-      outline-offset: 0.075rem;
-    }
-  </style>
-</head>
+  <body class="theme-light" style="font-family: &quot;Quicksand&quot;, cursive">
+    <div class="box">
+      <div class="container">
+        <div class="page" id="reflection-as-a-service">
+          <div class="row">
+            <div class="twelve columns" style="text-align: right">
+              <p style="font-size: 18pt; text-align: left">
+                <img height="40vh" src="img/seedling.png" />
+                Daily Reflection
+              </p>
+            </div>
+          </div>
 
-<body class="theme-light" style="font-family: 'Quicksand', cursive">
-<div class="box">
-  <div class="container">
-    <div class="page" id="reflection-as-a-service">
-      <div class="row">
-        <div class="twelve columns" style="text-align: right">
-          <p style="font-size: 18pt; text-align: left">
-            <img height="40vh" src="img/seedling.png"/>
-            Daily Reflection
-          </p>
+          <div class="row">
+            <div class="twelve columns">
+              <p>
+                Getting to know yourself better is a great way to gain insights
+                that both you and people around you will benefit from!
+              </p>
+              <p>
+                This is an opportunity for you to take a few minutes off from
+                the buzz around you and reflect inwards.
+              </p>
+              <p>
+                You choose the length yourself - it may be one minute or
+                several, depending on where you are at today.
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <button
+                class="theme-dark"
+                onClick="gotoPage('getting-in-the-mood')"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              class="twelve columns"
+              style="text-align: center; margin-top: 45px"
+            >
+              <i style="font-size: 10pt"
+                >Note: No data will be saved or collected from this app. It is
+                meant for personal use.</i
+              >
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="twelve columns">
-          <p>
-            Getting to know yourself better is a great way to
-            gain insights that both you and people around you will benefit
-            from!
-          </p>
-          <p>
-            This is an opportunity for you to take a few minutes off from
-            the buzz around you and reflect inwards.
-          </p>
-          <p>
-            You choose the length yourself - it may be one minute or
-            several, depending on where you are at today.
-          </p>
+        <div class="page" id="getting-in-the-mood" style="display: none">
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <h2>Take a deep breath</h2>
+              <p>Let's get into being mode</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h2>&nbsp;</h2>
+          </div>
+
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <button
+                class="theme-dark"
+                onClick="gotoPage('quantitative-questions')"
+              >
+                I'm ready
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <button class="theme-dark" onClick="gotoPage('getting-in-the-mood')">
-            Get Started
-          </button>
+        <div class="page" id="quantitative-questions" style="display: none">
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <a
+                href="javascript: gotoPage('quant-support')"
+                style="text-align: right; text-decoration: underline"
+                >About</a
+              >
+              <h3>How are you feeling today?</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="row">&nbsp;</div>
+            <div style="text-align: center">
+              <label for="energy-filled">Energy filled</label>
+              <input
+                id="energy-filled"
+                max="10"
+                min="1"
+                name="Energy filled"
+                type="range"
+              />
+            </div>
+            <div class="row">&nbsp;</div>
+            <div style="text-align: center">
+              <label for="relaxed">Relaxed</label>
+              <input
+                id="relaxed"
+                max="10"
+                min="1"
+                name="Relaxed"
+                type="range"
+              />
+            </div>
+            <div class="row">&nbsp;</div>
+            <div style="text-align: center">
+              <label for="harmonious">Harmonious</label>
+              <input
+                id="harmonious"
+                max="10"
+                min="1"
+                name="Harmonious"
+                type="range"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <h2>&nbsp;</h2>
+          </div>
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <button
+                class="theme-dark"
+                onClick="gotoPage('qualitative-questions')"
+              >
+                Next
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="twelve columns" style="text-align: center; margin-top: 45px;">
-          <i style="font-size: 10pt">Note: No data will be saved or collected from this app. It is meant for
-            personal
-            use.</i>
+        <div class="page" id="quant-support" style="display: none">
+          <div class="row">
+            <div class="twelve columns">
+              <h3>Energy filled</h3>
+              <p>I feel energetic; as opposed to tired or sleepy</p>
+
+              <h3>Relaxed</h3>
+              <p>I am feeling relaxed; as opposed to feeling stressed</p>
+
+              <h3>Harmonious</h3>
+              <p>
+                My body and mind are at peace; as opposed to in pain, feeling
+                anxious or having troubling thoughts
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h2>&nbsp;</h2>
+          </div>
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <button
+                class="theme-dark"
+                onClick="gotoPage('quantitative-questions')"
+              >
+                Back to reflections
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="page" id="qualitative-questions" style="display: none">
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <h4 style="text-align: left">Today's question</h4>
+              <label for="reflection">
+                <h2 id="question">...</h2>
+              </label>
+
+              <textarea
+                class="u-full-width"
+                id="reflection"
+                placeholder="Space for thoughts ..."
+              ></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <h2>&nbsp;</h2>
+          </div>
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <button class="theme-dark" onClick="gotoPage('celebrate')">
+                Done for today
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="page" id="celebrate" style="display: none">
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <h1>🙌🏻</h1>
+              <h4>Yay me!</h4>
+              <h2>I have invested some time into growing today</h2>
+              <i id="quote">...</i>
+            </div>
+          </div>
+
+          <div class="row">
+            <h2>&nbsp;</h2>
+          </div>
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <button class="theme-dark" onClick="gotoPage('reminder')">
+                How do I set up a reminder?
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="page" id="reminder" style="display: none">
+          <div class="row">
+            <div class="twelve columns" style="text-align: center">
+              <h2>Slack reminders</h2>
+              <p>
+                Follow these examples to create and manage reminders using
+                Slack.
+              </p>
+
+              <h4 style="text-align: left">Personal reminder</h4>
+              <p class="code">
+                /remind me Remember to
+                <a href="https://daily-reflection.com/">reflect</a>
+                every weekday at&nbsp;9 AM
+              </p>
+
+              <div class="row">&nbsp;</div>
+
+              <h4 style="text-align: left">Remind a channel</h4>
+              <p class="code">
+                /remind #name-of-channel Remember to
+                <a href="https://daily-reflection.com/">reflect</a>
+                every weekday at&nbsp;15.30
+              </p>
+
+              <div class="row">&nbsp;</div>
+
+              <h4 style="text-align: left">Update or delete reminders</h4>
+              <p class="code">/remind list</p>
+
+              <div class="row">&nbsp;</div>
+
+              <p>
+                <i style="font-size: 10pt"
+                  >Note: modify the date and time as you see fit. E.g:</i
+                >
+                <span class="code">on Fridays at 9 AM</span>,
+                <span class="code">every day at 14.45</span>.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="page" id="getting-in-the-mood" style="display: none">
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <h2>Take a deep breath</h2>
-          <p>Let's get into being mode</p>
-        </div>
-      </div>
+    <script>
+      function gotoPage(id) {
+        let pages = document.getElementsByClassName("page");
+        for (let page of pages) {
+          hideElement(page.id);
+        }
+        showElement(id);
+      }
 
-      <div class="row">
-        <h2>&nbsp;</h2>
-      </div>
+      function element(id) {
+        return document.getElementById(id);
+      }
 
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <button class="theme-dark" onClick="gotoPage('quantitative-questions')">
-            I'm ready
-          </button>
-        </div>
-      </div>
-    </div>
+      function showElement(id) {
+        element(id).style = "display:block";
+      }
 
-    <div class="page" id="quantitative-questions" style="display: none">
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <a href="javascript: gotoPage('quant-support')"
-             style="text-align: right; text-decoration: underline">About</a>
-          <h3>How are you feeling today?</h3>
-        </div>
-      </div>
+      function hideElement(id) {
+        element(id).style = "display:none";
+      }
 
-      <div class="row">
-        <div class="row">&nbsp;</div>
-        <div style="text-align: center">
-          <label for="energy-filled">Energy filled</label>
-          <input id="energy-filled" max="10" min="1" name="Energy filled" type="range"/>
-        </div>
-        <div class="row">&nbsp;</div>
-        <div style="text-align: center">
-          <label for="relaxed">Relaxed</label>
-          <input id="relaxed" max="10" min="1" name="Relaxed" type="range"/>
-        </div>
-        <div class="row">&nbsp;</div>
-        <div style="text-align: center">
-          <label for="harmonious">Harmonious</label>
-          <input id="harmonious" max="10" min="1" name="Harmonious" type="range"/>
-        </div>
-      </div>
+      function getRandomQuote() {
+        let quotes = [
+          "“In the midst of movement and chaos, keep stillness inside of you” –Deepak Chopra",
+          "“Calm mind brings inner strength and self-confidence.” -Dalai Lama",
+          "“Happiness is not a matter of intensity but of balance, order, rhythm, and harmony.” -Thomas Merton",
+          "“Mindfulness isn't difficult, we just need to remember to do it.” -Sharon Salzberg",
+        ];
+        return random(quotes);
+      }
 
-      <div class="row">
-        <h2>&nbsp;</h2>
-      </div>
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <button class="theme-dark" onClick="gotoPage('qualitative-questions')">Next</button>
-        </div>
-      </div>
-    </div>
+      function getRandomQuestion() {
+        let questions = [
+          "How did I nurture my physical well-being recently?",
+          "What actions did I take to promote my mental health recently?",
+          "What actions did I take to promote my emotional health recently?",
+          "How did I engage in activities that brought me joy and happiness recently?",
+          "How did I handle stress and difficult emotions recently?",
+          "How did I practice self-care recently?",
+          "How did I nurture my social well-being recently?",
+          "What did I do to improve my well-being recently?",
+          "How did I contribute to the well-being of others today, and how did it make me feel?",
+          "What am I proud of accomplishing recently?",
+          "What did I learn about myself recently?",
+          "What am I grateful for in this moment?",
+          "How did I communicate and connect with others recently?",
+          "How did I work toward my short-term and long-term goals recently?",
+          "What opportunities did I seize or create recently?",
+          "What moments brought me joy, and how can I replicate them?",
+          "How did I contribute positively to the lives of others recently?",
+          "When did I engage in creative or stimulating activities recently?",
+          "What moments today brought me a sense of calm and relaxation?",
+          "How did I prioritize my physical health and self-care recently?",
+          "What boundaries did I set today to protect my well-being?",
+          "In what way do I connect with nature or the outdoors for  recreation?",
+          "What activites did I engage that brought me joy and laughter recently?",
+          "What brought me a sense of purpose recently?",
+          "What activities today helped me manage stress and maintain balance?",
+          "What steps did I take to promote a healthy work-life balance recently?",
+          "What activities did I engage in to promote my personal or professional growth recently?",
+          "What challenged me today, and how did I overcome it?",
+          "What are my biggest challenges when it comes to work?",
+          "What are my greatest opportunities when it comes to work?",
+          "What do I want in life?",
+          "What am I avoiding?",
+          "What am I grateful for?",
+          "What am I afraid of?",
+          "What are my strengths and flaws?",
+          'You are 90 years old and your grandchild asks you "What do you regret?". What do you respond?',
+        ];
+        return daily(questions);
+      }
 
-    <div class="page" id="quant-support" style="display: none">
-      <div class="row">
-        <div class="twelve columns">
-          <h3>Energy filled</h3>
-          <p>I feel energetic; as opposed to tired or sleepy</p>
+      function daily(list) {
+        const now = Date.now();
+        const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
+        return list[Math.floor(now / oneDayInMilliseconds) % list.length];
+      }
 
-          <h3>Relaxed</h3>
-          <p>I am feeling relaxed; as opposed to feeling stressed</p>
+      function random(list) {
+        return list[Math.floor(Math.random() * list.length)];
+      }
 
-          <h3>Harmonious</h3>
-          <p>
-            My body and mind are at peace; as opposed to in pain, feeling
-            anxious or having troubling thoughts
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <h2>&nbsp;</h2>
-      </div>
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <button class="theme-dark" onClick="gotoPage('quantitative-questions')">
-            Back to reflections
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="page" id="qualitative-questions" style="display: none">
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <h4 style="text-align: left">Today's question</h4>
-          <label for="reflection">
-            <h2 id="question">...</h2>
-          </label>
-
-          <textarea class="u-full-width" id="reflection" placeholder="Space for thoughts ..."></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <h2>&nbsp;</h2>
-      </div>
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <button class="theme-dark" onClick="gotoPage('celebrate')">
-            Done for today
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="page" id="celebrate" style="display: none">
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <h1>🙌🏻</h1>
-          <h4>Yay me!</h4>
-          <h2>I have invested some time into growing today</h2>
-          <i id="quote">...</i>
-        </div>
-      </div>
-
-      <div class="row">
-        <h2>&nbsp;</h2>
-      </div>
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <button class="theme-dark" onClick="gotoPage('reminder')">
-            How do I set up a reminder?
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="page" id="reminder" style="display: none">
-      <div class="row">
-        <div class="twelve columns" style="text-align: center">
-          <h2>
-            Slack reminders
-          </h2>
-          <p>Follow these examples to create and manage reminders using Slack.</p>
-
-          <h4 style="text-align: left">
-            Personal reminder
-          </h4>
-          <p class="code">/remind me Remember to
-            <a href="https://daily-reflection.com/">reflect</a>
-            every weekday at&nbsp;9 AM
-          </p>
-
-          <div class="row">&nbsp;</div>
-
-          <h4 style="text-align: left">
-            Remind a channel
-          </h4>
-          <p class="code">/remind #name-of-channel Remember to
-            <a href="https://daily-reflection.com/">reflect</a>
-            every weekday at&nbsp;15.30
-          </p>
-
-          <div class="row">&nbsp;</div>
-
-          <h4 style="text-align: left">
-            Update or delete reminders
-          </h4>
-          <p class="code">/remind list</p>
-
-          <div class="row">&nbsp;</div>
-
-          <p>
-            <i style="font-size: 10pt">Note: modify the date and time as you see fit. E.g:</i> <span
-            class="code">on
-              Fridays at 9 AM</span>, <span class="code">every day at 14.45</span>.
-          </p>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  function gotoPage(id) {
-    let pages = document.getElementsByClassName("page");
-    for (let page of pages) {
-      hideElement(page.id);
-    }
-    showElement(id);
-  }
-
-  function element(id) {
-    return document.getElementById(id);
-  }
-
-  function showElement(id) {
-    element(id).style = "display:block";
-  }
-
-  function hideElement(id) {
-    element(id).style = "display:none";
-  }
-
-  function getRandomQuote() {
-    let quotes = [
-      "“In the midst of movement and chaos, keep stillness inside of you” –Deepak Chopra",
-      "“Calm mind brings inner strength and self-confidence.” -Dalai Lama",
-      "“Happiness is not a matter of intensity but of balance, order, rhythm, and harmony.” -Thomas Merton",
-      "“Mindfulness isn't difficult, we just need to remember to do it.” -Sharon Salzberg",
-    ];
-    return random(quotes);
-  }
-
-  function getRandomQuestion() {
-    let questions = [
-      "How did I nurture my physical well-being recently?",
-      "What actions did I take to promote my mental health recently?",
-      "What actions did I take to promote my emotional health recently?",
-      "How did I engage in activities that brought me joy and happiness recently?",
-      "How did I handle stress and difficult emotions recently?",
-      "How did I practice self-care recently?",
-      "How did I nurture my social well-being recently?",
-      "What did I do to improve my well-being recently?",
-      "How did I contribute to the well-being of others today, and how did it make me feel?",
-      "What am I proud of accomplishing recently?",
-      "What did I learn about myself recently?",
-      "What am I grateful for in this moment?",
-      "How did I communicate and connect with others recently?",
-      "How did I work toward my short-term and long-term goals recently?",
-      "What opportunities did I seize or create recently?",
-      "What moments brought me joy, and how can I replicate them?",
-      "How did I contribute positively to the lives of others recently?",
-      "When did I engage in creative or stimulating activities recently?",
-      "What moments today brought me a sense of calm and relaxation?",
-      "How did I prioritize my physical health and self-care recently?",
-      "What boundaries did I set today to protect my well-being?",
-      "In what way do I connect with nature or the outdoors for  recreation?",
-      "What activites did I engage that brought me joy and laughter recently?",
-      "What brought me a sense of purpose recently?",
-      "What activities today helped me manage stress and maintain balance?",
-      "What steps did I take to promote a healthy work-life balance recently?",
-      "What activities did I engage in to promote my personal or professional growth recently?",
-      "What challenged me today, and how did I overcome it?",
-      "What are my biggest challenges when it comes to work?",
-      "What are my greatest opportunities when it comes to work?",
-      "What do I want in life?",
-      "What am I avoiding?",
-      "What am I grateful for?",
-      "What am I afraid of?",
-      "What are my strengths and flaws?",
-      "You are 90 years old and your grandchild asks you \"What do you regret?\". What do you respond?",
-    ];
-    return daily(questions);
-  }
-
-  function daily(list) {
-    const now = Date.now()
-    const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
-    return list[Math.floor(now / oneDayInMilliseconds) % list.length]
-  }
-
-  function random(list) {
-    return list[Math.floor(Math.random() * list.length)];
-  }
-
-  element("question").innerText = getRandomQuestion();
-  element("quote").innerText = getRandomQuote();
-</script>
-</body>
-
+      element("question").innerText = getRandomQuestion();
+      element("quote").innerText = getRandomQuote();
+    </script>
+  </body>
 </html>
