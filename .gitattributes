@@ -8,7 +8,7 @@
 *.css    text
 *.js     text
 
-# Be explicity about some binary file types
+# Be explicit about some binary file types
 *.jpeg binary
 *.jpg binary
 *.png binary
