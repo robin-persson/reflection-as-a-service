@@ -53,6 +53,16 @@
       font-size: 12pt;
     }
 
+    .code {
+      padding: .2rem .5rem;
+      margin: 0 .2rem;
+      font-size: 90%;
+      background: #F1F1F1;
+      border: 1px solid #E1E1E1;
+      border-radius: 4px;
+      display: inline;
+    }
+
     /* SLIDERS */
     /* Reset defaults */
     input[type="range"] {
@@ -298,18 +308,20 @@
             <h4>
               Send this message to yourself in Slack to set up a personal daily reminder
             </h4>
-            <code>/remind me Remember to
-                        <a href="https://robin-persson.github.io/reflection-as-a-service/">reflect</a>
-                        every weekday at&nbsp;9</code>
+            <p class="code">/remind me Remember to
+              <a href="https://daily-reflection.com/">reflect</a>
+              every weekday at&nbsp;9 AM
+            </p>
             <div class="row">
               <h2>&nbsp;</h2>
             </div>
             <h4>
               Send this message to a channel to remind everyone at once
             </h4>
-            <code>/remind #name-of-channel Remember to
-                        <a href="https://robin-persson.github.io/reflection-as-a-service/">reflect</a>
-                        every weekday at&nbsp;9</code>
+            <p class="code">/remind #name-of-channel Remember to
+              <a href="https://daily-reflection.com/">reflect</a>
+              every weekday at&nbsp;15.30
+            </p>
 
             <div class="row">
               <h2>&nbsp;</h2>
