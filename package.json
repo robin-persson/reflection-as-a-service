@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "format": "prettier index.html"
+    "format": "prettier index.html -w"
   },
   "devDependencies": {
     "prettier": "^3.0.3"
