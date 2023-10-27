@@ -329,17 +329,21 @@
     function gotoPage(id) {
         let pages = document.getElementsByClassName("page");
         for (let page of pages) {
-            hide(page.id);
+            hideElement(page.id);
         }
-        show(id);
+        showElement(id);
+    }
+    
+    function element(id) {
+        return document.getElementById(id);
     }
 
-    function show(id) {
-        document.getElementById(id).style = "display:block";
+    function showElement(id) {
+        element(id).style = "display:block";
     }
 
-    function hide(id) {
-        document.getElementById(id).style = "display:none";
+    function hideElement(id) {
+        element(id).style = "display:none";
     }
 
     function getRandomQuote() {
@@ -398,8 +402,8 @@
         return list[Math.floor(Math.random() * list.length)];
     }
 
-    document.getElementById("question").innerText = getRandomQuestion();
-    document.getElementById("quote").innerText = getRandomQuote();
+    element("question").innerText = getRandomQuestion();
+    element("quote").innerText = getRandomQuote();
 </script>
 </body>
 
